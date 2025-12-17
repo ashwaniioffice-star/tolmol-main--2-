@@ -62,61 +62,111 @@ def create_sample_data():
         db.session.commit()
         print("✅ Created 4 sample users")
         
-        # Create sample auctions
+        # Create sample auctions with realistic data
         auctions_data = [
             {
-                "title": "Logo Design for Startup",
-                "description": "Need a modern, Gen-Z friendly logo for my new app. Looking for minimalist design with bold colors. Should work well on mobile screens.",
-                "category": "design",
-                "location": "Mumbai, MH",
-                "starting_bid": 5000.00,
-                "is_hot_deal": True,
-                "end_time": datetime.utcnow() + timedelta(hours=2)
-            },
-            {
-                "title": "Deep Clean My 2BHK Apartment",
-                "description": "Moving in next week, need professional deep cleaning service. Kitchen, bathrooms, all rooms. Should use eco-friendly products.",
+                "title": "Professional House Cleaning - 3BHK Apartment",
+                "description": "Need professional deep cleaning for a 3BHK apartment in Koramangala. Kitchen, bathrooms, and all rooms. Eco-friendly products preferred. Available this weekend.",
                 "category": "cleaning",
-                "location": "Bangalore, KA",
-                "starting_bid": 3500.00,
-                "is_hot_deal": False,
-                "end_time": datetime.utcnow() + timedelta(hours=4)
-            },
-            {
-                "title": "Wedding Photography Package",
-                "description": "Looking for candid wedding photography for Dec 2025 wedding. Need pre-wedding, ceremony, and reception coverage. 300+ edited photos required.",
-                "category": "other",
-                "location": "Delhi, DL",
-                "starting_bid": 25000.00,
+                "location": "Koramangala, Bangalore",
+                "starting_bid": 3000.00,
                 "is_hot_deal": True,
-                "end_time": datetime.utcnow() + timedelta(hours=6)
+                "end_time": datetime.utcnow() + timedelta(hours=24),
+                "city": "Bangalore",
+                "state": "karnataka",
+                "location_type": "city",
+                "radius_km": 50
             },
             {
-                "title": "Python Tutoring - 10 Sessions",
-                "description": "Need help learning Python for data science. Complete beginner, prefer online classes on weekends. Looking for structured curriculum.",
+                "title": "Math & Physics Tutoring - Class 12 CBSE",
+                "description": "Looking for experienced tutor for Class 12 CBSE student. Need help with advanced mathematics and physics. Prefer home visits in Noida. 2-3 sessions per week.",
                 "category": "tutoring",
-                "location": "Pune, MH",
+                "location": "Sector 62, Noida",
+                "starting_bid": 2000.00,
+                "is_hot_deal": False,
+                "end_time": datetime.utcnow() + timedelta(hours=48),
+                "city": "Noida",
+                "state": "uttar-pradesh",
+                "location_type": "local",
+                "radius_km": 10
+            },
+            {
+                "title": "Logo & Brand Identity Design for Tech Startup",
+                "description": "Need complete brand identity design for new fintech startup. Logo, color palette, typography, and brand guidelines. Modern, professional, and trustworthy feel. Deliverables: Logo variations, style guide, and brand book.",
+                "category": "design",
+                "location": "Pune, Maharashtra",
+                "starting_bid": 15000.00,
+                "is_hot_deal": True,
+                "end_time": datetime.utcnow() + timedelta(hours=72),
+                "city": "Pune",
+                "state": "maharashtra",
+                "location_type": "state",
+                "radius_km": 500
+            },
+            {
+                "title": "Home Repair - Plumbing & Electrical Work",
+                "description": "Need comprehensive home repair service. Fix leaking pipes in kitchen and bathroom, install new electrical outlets in living room, and repair broken tiles. Professional work required with warranty.",
+                "category": "home_repair",
+                "location": "Andheri West, Mumbai",
+                "starting_bid": 5000.00,
+                "is_hot_deal": False,
+                "end_time": datetime.utcnow() + timedelta(hours=36),
+                "city": "Mumbai",
+                "state": "maharashtra",
+                "location_type": "city",
+                "radius_km": 50
+            },
+            {
+                "title": "Website Development - E-commerce Platform",
+                "description": "Build a complete e-commerce website for fashion retail. Features needed: Product catalog, shopping cart, payment gateway integration, admin dashboard, and mobile responsive design. Tech stack: React/Next.js preferred.",
+                "category": "tech_support",
+                "location": "Gurgaon, Haryana",
+                "starting_bid": 50000.00,
+                "is_hot_deal": True,
+                "end_time": datetime.utcnow() + timedelta(days=7),
+                "city": "Gurgaon",
+                "state": "haryana",
+                "location_type": "state",
+                "radius_km": 500
+            },
+            {
+                "title": "Beauty & Spa Services - Wedding Package",
+                "description": "Complete bridal beauty package for wedding day. Includes: Hair styling, makeup, mehendi, and pre-wedding facial. Need experienced beautician for home service in South Delhi. Date: Next month.",
+                "category": "beauty",
+                "location": "South Delhi",
                 "starting_bid": 8000.00,
                 "is_hot_deal": False,
-                "end_time": datetime.utcnow() + timedelta(hours=8)
+                "end_time": datetime.utcnow() + timedelta(days=20),
+                "city": "Delhi",
+                "state": "delhi",
+                "location_type": "city",
+                "radius_km": 30
             },
             {
-                "title": "Bulk Delivery - 100 Parcels",
-                "description": "Need same-day delivery for 100 small parcels across the city. All addresses within 20km radius. Professional handling required.",
-                "category": "delivery",
-                "location": "Chennai, TN",
-                "starting_bid": 12000.00,
+                "title": "Car Service & Maintenance - Annual Service",
+                "description": "Complete annual service for Honda City 2020. Includes: Oil change, filter replacement, brake inspection, AC service, and general checkup. Need authorized service center or experienced mechanic.",
+                "category": "automotive",
+                "location": "Whitefield, Bangalore",
+                "starting_bid": 3500.00,
                 "is_hot_deal": False,
-                "end_time": datetime.utcnow() + timedelta(hours=12)
+                "end_time": datetime.utcnow() + timedelta(days=5),
+                "city": "Bangalore",
+                "state": "karnataka",
+                "location_type": "local",
+                "radius_km": 15
             },
             {
-                "title": "Mobile App Development - Food Delivery",
-                "description": "Build a simple food delivery app like Zomato. Need iOS and Android versions. Basic features: menu, cart, payment, tracking.",
-                "category": "tech_support",
-                "location": "Hyderabad, TG",
-                "starting_bid": 150000.00,
-                "is_hot_deal": True,
-                "end_time": datetime.utcnow() + timedelta(days=1)
+                "title": "Content Writing - Blog Articles (10 Articles)",
+                "description": "Need 10 high-quality blog articles (1000 words each) on technology and business topics. SEO optimized, original content, and well-researched. Topics will be provided. Deadline: 2 weeks.",
+                "category": "other",
+                "location": "Remote/Online",
+                "starting_bid": 8000.00,
+                "is_hot_deal": False,
+                "end_time": datetime.utcnow() + timedelta(days=10),
+                "city": "Any",
+                "state": "any",
+                "location_type": "state",
+                "radius_km": 1000
             }
         ]
         
@@ -129,12 +179,16 @@ def create_sample_data():
                 starting_bid=auction_data["starting_bid"],
                 is_hot_deal=auction_data["is_hot_deal"],
                 end_time=auction_data["end_time"],
-                creator_id=user1.id  # User1 creates all auctions
+                creator_id=user1.id,  # User1 creates all auctions
+                city=auction_data.get("city", ""),
+                state=auction_data.get("state", ""),
+                location_type=auction_data.get("location_type", "city"),
+                radius_km=auction_data.get("radius_km", 50)
             )
             db.session.add(auction)
         
         db.session.commit()
-        print("✅ Created 6 sample auctions")
+        print("✅ Created 8 realistic sample auctions")
         
         print("\n🎯 Sample login credentials:")
         print("Service Provider: designpro / password123")
