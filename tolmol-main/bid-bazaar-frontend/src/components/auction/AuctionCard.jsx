@@ -18,7 +18,7 @@ const AuctionCard = ({ auction }) => {
   const timeRemaining = formatTimeRemaining(auction.end_time);
   const isExpired = status.status === 'expired';
 
-  const getCategoryIcon = (category) => {
+  const getCategoryIcon = () => {
     // You can add specific icons for each category
     return '🔧'; // Default icon
   };

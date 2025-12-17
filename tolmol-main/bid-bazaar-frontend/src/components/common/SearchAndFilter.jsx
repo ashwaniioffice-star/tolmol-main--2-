@@ -21,7 +21,7 @@ import { useAuction } from '../../contexts/AuctionContext';
 import { debounce } from '../../utils/helpers';
 
 const SearchAndFilter = () => {
-  const { filters, setFilters, setSort, sortBy, loadAuctions } = useAuction();
+  const { filters, setFilters, setSort, sortBy } = useAuction();
   const [showFilters, setShowFilters] = useState(false);
   const [localSearch, setLocalSearch] = useState(filters.search);
 
@@ -34,6 +34,7 @@ const SearchAndFilter = () => {
   // Handle search input change
   useEffect(() => {
     debouncedSearch(localSearch);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [localSearch]);
 
   const handleFilterChange = (key, value) => {

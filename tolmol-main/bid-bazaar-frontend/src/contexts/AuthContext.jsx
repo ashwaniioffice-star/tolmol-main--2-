@@ -108,7 +108,7 @@ export const AuthProvider = ({ children }) => {
             type: AUTH_ACTIONS.LOAD_USER_SUCCESS,
             payload: { user: response.user }
           });
-        } catch (error) {
+        } catch {
           // If session expired, clear saved user
           storage.remove('user');
           storage.remove('token');

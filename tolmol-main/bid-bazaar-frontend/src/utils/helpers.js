@@ -48,7 +48,7 @@ export const isValidEmail = (email) => {
 
 // Validate phone number (Indian format)
 export const isValidPhone = (phone) => {
-  const phoneRegex = /^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/;
+  const phoneRegex = /^(\+91[-\s]?)?[0]?(91)?[789]\d{9}$/;
   return phoneRegex.test(phone.replace(/\s/g, ''));
 };
 

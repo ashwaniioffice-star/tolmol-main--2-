@@ -15,7 +15,6 @@ import {
 import AuctionList from '../components/auction/AuctionList';
 import SearchAndFilter from '../components/common/SearchAndFilter';
 import { useAuction } from '../contexts/AuctionContext';
-import { formatCurrency } from '../utils/helpers';
 
 const HomePage = () => {
   const { filteredAuctions, isLoading, error } = useAuction();

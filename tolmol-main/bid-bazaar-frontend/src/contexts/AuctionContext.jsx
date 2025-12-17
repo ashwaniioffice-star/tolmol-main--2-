@@ -51,7 +51,7 @@ const auctionReducer = (state, action) => {
         error: null
       };
       
-    case AUCTION_ACTIONS.LOAD_AUCTIONS_SUCCESS:
+    case AUCTION_ACTIONS.LOAD_AUCTIONS_SUCCESS: {
       const sortedAuctions = sortAuctions(action.payload, state.sortBy);
       const filteredAuctions = filterAuctions(sortedAuctions, state.filters);
       return {
@@ -61,8 +61,9 @@ const auctionReducer = (state, action) => {
         filteredAuctions,
         error: null
       };
+    }
       
-    case AUCTION_ACTIONS.CREATE_AUCTION_SUCCESS:
+    case AUCTION_ACTIONS.CREATE_AUCTION_SUCCESS: {
       const newAuctions = [action.payload, ...state.auctions];
       const newSortedAuctions = sortAuctions(newAuctions, state.sortBy);
       const newFilteredAuctions = filterAuctions(newSortedAuctions, state.filters);
@@ -73,8 +74,9 @@ const auctionReducer = (state, action) => {
         filteredAuctions: newFilteredAuctions,
         error: null
       };
+    }
       
-    case AUCTION_ACTIONS.PLACE_BID_SUCCESS:
+    case AUCTION_ACTIONS.PLACE_BID_SUCCESS: {
       const updatedAuctions = state.auctions.map(auction =>
         auction.id === action.payload.auctionId
           ? {
@@ -93,8 +95,9 @@ const auctionReducer = (state, action) => {
         filteredAuctions: updatedFilteredAuctions,
         error: null
       };
+    }
       
-    case AUCTION_ACTIONS.UPDATE_AUCTION:
+    case AUCTION_ACTIONS.UPDATE_AUCTION: {
       const auctionsWithUpdate = state.auctions.map(auction =>
         auction.id === action.payload.id
           ? { ...auction, ...action.payload.updates }
@@ -107,6 +110,7 @@ const auctionReducer = (state, action) => {
         auctions: auctionsWithUpdate,
         filteredAuctions: filteredWithUpdate
       };
+    }
       
     case AUCTION_ACTIONS.LOAD_AUCTIONS_FAILURE:
     case AUCTION_ACTIONS.CREATE_AUCTION_FAILURE:
@@ -117,7 +121,7 @@ const auctionReducer = (state, action) => {
         error: action.payload
       };
       
-    case AUCTION_ACTIONS.SET_FILTERS:
+    case AUCTION_ACTIONS.SET_FILTERS: {
       const newFilters = { ...state.filters, ...action.payload };
       // Filter locally for immediate UI update, but API will be called via useEffect
       const filteredWithNewFilters = filterAuctions(
@@ -129,8 +133,9 @@ const auctionReducer = (state, action) => {
         filters: newFilters,
         filteredAuctions: filteredWithNewFilters
       };
+    }
       
-    case AUCTION_ACTIONS.SET_SORT:
+    case AUCTION_ACTIONS.SET_SORT: {
       const newSortBy = action.payload;
       const sortedWithNewSort = sortAuctions(state.auctions, newSortBy);
       const filteredWithNewSort = filterAuctions(sortedWithNewSort, state.filters);
@@ -139,6 +144,7 @@ const auctionReducer = (state, action) => {
         sortBy: newSortBy,
         filteredAuctions: filteredWithNewSort
       };
+    }
       
     case AUCTION_ACTIONS.CLEAR_ERROR:
       return {
